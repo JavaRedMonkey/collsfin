@@ -5,7 +5,7 @@ package pasha.edu;
 @DATE: 24.04.2021
 @NAME: OrderLunch
 */
-public class OrderLunch {
+public class OrderLunch implements IBill{
     private  String salatName;
     private Integer salatPrice;
     private String firstDish;
@@ -104,5 +104,14 @@ public class OrderLunch {
                 ", secondDishPrice=" + secondDishPrice +
                 ", desert='" + desert + '\'' +
                 ", desertPrice=" + desertPrice;
+    }
+
+    @Override
+    public Integer getBill() {
+        return this.getDesertPrice()
+                + this.getSalatPrice()
+                + this.getFirstDishPrice()
+                + this.getSecondDishPrice()
+                + 200;
     }
 }
